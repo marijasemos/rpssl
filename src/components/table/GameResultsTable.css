@@ -1,0 +1,22 @@
+/* GameResultsTable.css */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Spoji linije za uredniji izgled */
+}
+
+th, td {
+    border: 1px solid #dddddd; /* Dodaj sive linije */
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: grey; /* Plava boja za zaglavlje */
+    color: white; /* Bela boja za tekst zaglavlja */
+}
+
+/* Alternativno: Dodaj blago sivo pozadinu na svaku drugu liniju */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+

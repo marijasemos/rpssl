@@ -1,0 +1,30 @@
+input {
+    margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.join-button {
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.play-button, .cancel-button {
+    padding: 0px 30px;
+    margin: 5px ;
+}
+
+.cancel-button {
+    background-color: #e74c3c;
+}
+
+.button-disabled {
+    background-color: grey;
+    cursor: not-allowed; 
+    pointer-events: none; 
+}
+
+
