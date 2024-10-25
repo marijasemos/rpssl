@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# RPSSL Game - Rock, Paper, Scissors, Lizard, Spock
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+RPSSL Game is an implementation of the popular game "Rock, Paper, Scissors, Lizard, Spock". It extends the classic "Rock, Paper, Scissors" game by adding two new moves: Lizard and Spock.
+This project is built using microservices in C# for game mechanics and user management, and a React frontend for a seamless user interface.
 
-## Available Scripts
+The game logic is containerized and managed using Docker Compose, allowing for easy deployment and scaling.
 
-In the project directory, you can run:
+## Technologies Used
+- C# (.NET Core) for microservices
+- React for frontend
+- Docker & Docker Compose for container orchestration
 
-### `npm start`
+## Installation and Running
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
+- .NET Core SDK installed
+- Node.js and npm installed
+- Docker Desktop  installed
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Steps to Run
 
-### `npm test`
+1. Clone the repository:
+    git clone https://github.com/username/RPSSLGame.git
+   
+3. Clone the repository and place in the previous one
+ git clone https://github.com/marijasemos/rpssl.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+RPSSLGame/
+│
+├── RPSSL.ChoiceService/     
+├── RPSSL.PlayService/      
+├── rpssl/          
+├── docker-compose.yml  
+└── README.md          
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. Build and run the microservices using Docker Compose:
+    docker-compose up --build
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. Navigate to the `react-app` directory and install dependencies:
+    cd rpssl
+    npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+7. Start the React application
+    npm run start
 
-### `npm run eject`
+8. Open your web browser and go to `http://localhost:3000` to access the game or http://rpssl.localhost/.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+##  Play Rules
+    - Scissors cuts Paper
+    - Paper covers Rock
+    - Rock crushes Lizard
+    - Lizard poisons Spock
+    - Spock smashes Scissors
+    - Scissors decapitates Lizard
+    - Lizard eats Paper
+    - Paper disproves Spock
+    - Spock vaporizes Rock
+    - Rock crushes Scissors
+ Enjoy and see who wins!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## How to Play 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The RPSLS game offers two modes: playing against the computer or playing against another player.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## How to Playing Against the Computer
+1.Choose one of the five available options: Rock, Paper, Scissors, Lizard, or Spock.
+2.Once you make your selection, the computer will randomly generate its choice.
+3.The game will determine the winner based on the rules of RPSLS.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## How to Playing Against Another Player
 
-### Code Splitting
+1.One player creates a new game session and receives a unique game code.
+2.The second player joins the game by entering the game code provided by the first player.
+3.The game begins once both players are connected, and they can continue playing rounds until one player decides to end the session.
+4.The game will automatically end if a player does not make a move within 20 seconds.
+Enjoy the game!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Project Structure
+- RPSSL.GameService - Contains the game logic microservice.
+- RPSSL.ChoiceService - Manages choices.
+- rpssl - The frontend of the game built using React.
+- docker-compose.yml - Docker Compose configuration file for managing containers.
 
-### Analyzing the Bundle Size
+## Contributing
+Contributions are welcome! Please fork the repository, make your changes, and submit a pull request. Ensure that your code follows the established code style and has been properly tested.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Authors
+Marija Milosevic
