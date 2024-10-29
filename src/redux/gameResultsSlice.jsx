@@ -17,7 +17,7 @@ export const gameResultsSlice = createSlice({
             state.results.push(action.payload);
             const { result } = action.payload;
             if (result === 'Win') state.wins += 1;
-            else if (result === 'Lost') state.losses += 1;
+            else if (result === 'Lose') state.losses += 1;
             else if (result === 'Tie') state.ties += 1;
         },
         resetGameResults: (state) => {
