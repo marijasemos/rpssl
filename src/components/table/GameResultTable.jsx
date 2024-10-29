@@ -1,16 +1,23 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './GameResultsTable.css';
+import { addGameResult, resetGameResults, selectWinCount, selectLossCount, selectTieCount } from '../../redux/gameResultsSlice';
 
 const GameResultsTable = () => {
-    const gameResults = useSelector((state) => state.gameResults);
+    const gameResults = useSelector((state) => state.gameResults.results);
 
-    // Log the game results to help with debugging
-    console.log("Current game results:", gameResults);
-
+    const winCount = useSelector(selectWinCount);
+    const lossCount = useSelector(selectLossCount);
+    const tieCount = useSelector(selectTieCount);
     return (
         <div>
             <h2>Your Game Results</h2>
+            <div className="game-results-summary">
+                <p className="win">Win: {winCount}</p>
+                <p className="lose">Lose: {lossCount}</p>
+                <p className="tie">Tie: {tieCount}</p>
+            </div>
+
             <table>
                 <thead>
                     <tr>

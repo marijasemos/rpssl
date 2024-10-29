@@ -2,7 +2,7 @@ import React from 'react';
 import imageMapper from '../../helpers/imageMapper';
 import './itemCard.css';
 
-const ItemCard = ({ id, name, onClick, isAnimating, isSecondCoice, statusGame }) => {
+const ItemCard = ({  name, onClick, isAnimating, isSecondCoice, statusGame }) => {
   const imageSrc = imageMapper[name];
   
   const className = `item-card ${isAnimating ? 'animated-icon animate' : ''} 

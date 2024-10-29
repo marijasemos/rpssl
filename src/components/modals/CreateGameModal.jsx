@@ -14,17 +14,11 @@ const CreateGameModal = ({ isOpen, onRequestClose, onRequestPlay, gameCode, play
             <h2>{message}</h2>
             {gameCode && playerId && !bothConnected && (
                 <div className="game-info">
-                    {/* <p>Game Code: <strong>{gameCode}</strong></p>
-                    <p>Player ID: <strong>{playerId}</strong></p> */}
+
                     <p>Waiting for second player to join</p>
                 </div>
             )}
-            {/* {bothConnected && (
-                <div>
-                    <button onClick={onRequestClose}>Play</button>
-                </div>
-            )} */}
-            {/* <button className = 'play-button' onClick={onRequestPlay}>Play</button> */}
+
             <button className = {`play-button ${!bothConnected ? 'button-disabled' : ''} `} onClick={onRequestPlay}>Play</button>
 ]
             <button className = 'cancel-button' onClick={onRequestClose}>Cancel</button>

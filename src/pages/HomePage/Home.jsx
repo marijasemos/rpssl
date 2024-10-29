@@ -35,9 +35,8 @@ const HomePage = () => {
     const [countdown, setCountdown] = useState(20);
     const timerRef = useRef(null);
 
-    const { data: playResponse, sendRequest: sendPlayRequest } = useHttp();
+    const { data: playResponse, sendRequest: sendPlayRequest, setData } = useHttp();
     const dispatch = useDispatch();
-
     const signalRHandlers = {
         Waiting: (msg) => {
             setMessage(msg);
@@ -92,6 +91,8 @@ const HomePage = () => {
         setCreateModalOpen(false);
         setSelectedIcon(null);
         setAnimatingItem(null);
+        setSelectedChoice(null)
+        setData(null)
         handleReset();
     }, [gameOverMessage]);
 
@@ -119,16 +120,14 @@ const HomePage = () => {
         }
     };
 
-    const initiateJoinGame = (enteredGameCode) => {
-        setGameCode(enteredGameCode);
+    const initiateJoinGame = () => {
         if (!connection) startConnection(`http://game.localhost/GameHub?gameCode=`);
-        handleReset();
     };
 
-    const joinGame = () => {
+    const joinGame = (enteredGameCode) => {
         if (isConnected && connection) {
-            connection.invoke('JoinGame', gameCode)
-                .then(() => setMessage(`Joining game: ${gameCode}`))
+            connection.invoke('JoinGame', enteredGameCode)
+                .then(() => setMessage(`Joining game: ${enteredGameCode}`))
                 .catch(err => {
                     setMessage('Failed to join the game. Please try again.');
                     console.error(err);
@@ -255,14 +254,17 @@ const HomePage = () => {
     if (error) {
         return <p>Error: {error}</p>;
     }
-
+ const handleJoinClick  = () => {
+    setJoinModalOpen(true);
+    initiateJoinGame();
+ }
     return (
         <div className="home-page">
             <div className="header">
                 {!bothConnected ? (
                     <>
                         <button onClick={statusGame == null ? createGame : undefined}>Create Game</button>
-                        <button onClick={statusGame == null ? () => setJoinModalOpen(true) : undefined}>Join Game</button>
+                        <button onClick={statusGame == null ? () => handleJoinClick() : undefined}>Join Game</button>
                     </>
                 ) : (
                     <button onClick={() => handleCancelGame()}>Game end</button>

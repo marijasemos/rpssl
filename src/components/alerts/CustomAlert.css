@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure it's above other elements */
+    z-index: 1000; 
 }
 
 .custom-alert-content {

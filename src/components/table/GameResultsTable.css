@@ -1,22 +1,58 @@
-/* GameResultsTable.css */
 table {
     width: 100%;
-    border-collapse: collapse; /* Spoji linije za uredniji izgled */
+    border-collapse: collapse; 
 }
 
 th, td {
-    border: 1px solid #dddddd; /* Dodaj sive linije */
+    border: 1px solid #dddddd; 
     text-align: left;
     padding: 8px;
 }
 
 th {
-    background-color: grey; /* Plava boja za zaglavlje */
-    color: white; /* Bela boja za tekst zaglavlja */
+    background-color: grey; 
+    color: white; 
 }
 
-/* Alternativno: Dodaj blago sivo pozadinu na svaku drugu liniju */
 tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+.game-results-summary {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(135deg, #81c784, #04AA6D);    color: #fff;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.game-results-summary p {
+    margin: 0;
+    text-align: center;
+    position: relative;
+    padding-left: 30px; /* Space for the icon */
+}
+
+.game-results-summary p.win::before {
+    content: '🏆'; /* Trophy for wins */
+    position: absolute;
+    left: 0;
+}
+
+.game-results-summary p.lose::before {
+    content: '💔'; /* Broken heart for losses */
+    position: absolute;
+    left: 0;
+}
+
+.game-results-summary p.tie::before {
+    content: '🤝'; /* Handshake for ties */
+    position: absolute;
+    left: 0;
 }
 

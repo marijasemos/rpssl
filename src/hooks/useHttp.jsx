@@ -53,5 +53,6 @@ export default function useHttp(initialUrl, initialConfig = {}, initialData = nu
         error,
         sendRequest,
         setRequestDetails,
+        setData
     };
 }

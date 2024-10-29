@@ -6,9 +6,11 @@ const JoinGameModal = ({ isOpen, onRequestClose,onRequestPlay, gameCode, setGame
 
     const handleJoinClick = () => {
         if (inputCode.trim()) {
+        
              setGameCode(inputCode); // Set the game code based on user input
-            onConnect(inputCode);   // Trigger the connection setup using the entered code
-             onJoin();               // Trigger the join function
+             onJoin(inputCode);               // Trigger the join function
+
+
         }
     };
 
